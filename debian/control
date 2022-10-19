@@ -1,0 +1,44 @@
+Source: ruby-sprockets
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Antonio Terceiro <terceiro@debian.org>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb,
+               ruby-ejs,
+               ruby-execjs,
+               ruby-hike,
+               ruby-multi-json,
+               ruby-nokogiri,
+               ruby-rack | ruby-rack1.4,
+               ruby-rack-test,
+               ruby-sass,
+               ruby-coffee-script,
+               ruby-uglifier,
+               ruby-concurrent,
+               ruby-tilt,
+               ruby-rack (<< 3),
+               ruby-rack
+Standards-Version: 4.6.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-sprockets.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-sprockets
+Homepage: https://github.com/rails/sprockets
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+
+Package: ruby-sprockets
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ruby-hike,
+         ruby-multi-json,
+         ruby-rack | ruby-rack1.4,
+         ruby-tilt,
+         ruby-concurrent,
+         ruby-rack (<< 3),
+         ruby-rack,
+         ${ruby:Depends},
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Rack-based asset packaging system
+ Sprockets is a Rack-based asset packaging system that concatenates
+ and serves JavaScript, CoffeeScript, CSS, LESS, Sass, and SCSS.

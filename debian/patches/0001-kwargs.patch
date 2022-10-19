@@ -1,0 +1,30 @@
+From: Lucas Kanashiro <kanashiro@debian.org>
+Date: Wed, 20 Oct 2021 16:23:07 -0300
+Subject: kwargs
+
+Origin: upstream, https://github.com/rails/sprockets/commit/6e6d6a70848cf006f
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=996511
+Reviewed-By: Lucas Kanashiro <kanashiro@debian.org>
+---
+ test/test_performance.rb | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/test/test_performance.rb b/test/test_performance.rb
+index 57e3463..1dd1169 100644
+--- a/test/test_performance.rb
++++ b/test/test_performance.rb
+@@ -15,12 +15,12 @@ end
+ $dir_entires_calls = nil
+ class << Dir
+   alias_method :original_entries, :entries
+-  def entries(dirname, *args)
++  def entries(dirname, **args)
+     if $dir_entires_calls
+       $dir_entires_calls[dirname.to_s] ||= []
+       $dir_entires_calls[dirname.to_s] << caller
+     end
+-    original_entries(dirname, *args)
++    original_entries(dirname, **args)
+   end
+ end
+ 
